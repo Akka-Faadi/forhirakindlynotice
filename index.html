@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Hira ❤️ - A Love Note</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose-red: #c41e3a;
+            --rose-dark: #8b0000;
+            --rose-light: #ff6b8a;
+            --gold: #d4af37;
+            --cream: #fff8f0;
+            --soft-pink: #ffe4e9;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8ec 50%, #fff0f3 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Floating Petals Animation */
+        .petal {
+            position: fixed;
+            top: -20px;
+            pointer-events: none;
+            animation: fall linear infinite;
+            z-index: 1;
+            opacity: 0.7;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(196, 30, 58, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(212, 175, 55, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 10vw, 6rem);
+            color: var(--rose-dark);
+            text-shadow: 2px 2px 4px rgba(196, 30, 58, 0.2);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #666;
+            font-style: italic;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1.5s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Rose Decoration */
+        .rose-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 2rem auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .rose-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 10px 20px rgba(196, 30, 58, 0.3));
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-right: 3px solid var(--rose-red);
+            border-bottom: 3px solid var(--rose-red);
+            transform: rotate(45deg);
+            opacity: 0.6;
+        }
+
+        /* Main Content */
+        .love-letter {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .letter-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(196, 30, 58, 0.15);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .letter-card::before {
+            content: '❤';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 150px;
+            opacity: 0.05;
+            color: var(--rose-red);
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(196, 30, 58, 0.1);
+        }
+
+        .letter-header h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--rose-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .letter-header p {
+            color: #888;
+            font-style: italic;
+        }
+
+        .letter-content {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #444;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .letter-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: var(--rose-red);
+            font-weight: 600;
+        }
+
+        .emoji {
+            font-size: 1.3em;
+        }
+
+        /* Rose Divider */
+        .rose-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+            gap: 1rem;
+        }
+
+        .rose-divider::before,
+        .rose-divider::after {
+            content: '';
+            height: 2px;
+            flex: 1;
+            background: linear-gradient(90deg, transparent, var(--rose-red), transparent);
+        }
+
+        .rose-divider span {
+            font-size: 2rem;
+        }
+
+        /* Signature */
+        .signature {
+            text-align: right;
+            margin-top: 3rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--rose-dark);
+        }
+
+        .signature small {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #999;
+            font-style: italic;
+        }
+
+        .heart {
+            color: var(--rose-red);
+            animation: heartbeat 1.5s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Side Roses */
+        .side-rose {
+            position: fixed;
+            font-size: 3rem;
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .side-rose.left { left: 2rem; top: 50%; transform: translateY(-50%); }
+        .side-rose.right { right: 2rem; top: 50%; transform: translateY(-50%); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .letter-card {
+                padding: 2rem;
+            }
+            .side-rose { display: none; }
+        }
+
+        
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Background Music Control */
+        .music-control {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(196, 30, 58, 0.4);
+            box-shadow: 0 8px 24px rgba(196, 30, 58, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 9999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.3rem;
+            user-select: none;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.35);
+        }
+
+        .music-control.playing {
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .music-control .icon {
+            pointer-events: none;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" autoplay loop preload="auto">
+        <source src="KALYANI%20(with%20Shreya%20Ghoshal)%20ARJN%20KDS%20FIFTY4%20RONN%20Kya%20Fitoor%20Door%20Raha%20Kyun%20JaayeNa%20Lyrical.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Control Button -->
+    <div class="music-control playing" id="musicControl" title="Click to pause/play the music">
+        <span class="icon" id="musicIcon">🎵</span>
+    </div>
+
+    <!-- Floating Petals -->
+    <div id="petals"></div>
+
+    <!-- Side Roses -->
+    <div class="side-rose left">🌹</div>
+    <div class="side-rose right">🌹</div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="rose-container">
+            <svg class="rose-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Stem -->
+                <path d="M100 180 Q100 140 100 120" stroke="#2d5a27" stroke-width="4" fill="none"/>
+                <!-- Leaves -->
+                <path d="M100 160 Q80 150 70 160 Q80 170 100 160" fill="#3d7a35"/>
+                <path d="M100 140 Q120 130 130 140 Q120 150 100 140" fill="#4a8a3f"/>
+                <!-- Rose petals - layered circles for depth -->
+                <circle cx="100" cy="80" r="45" fill="#c41e3a" opacity="0.3"/>
+                <circle cx="100" cy="80" r="38" fill="#d42a4a" opacity="0.5"/>
+                <circle cx="100" cy="80" r="30" fill="#e0355a" opacity="0.7"/>
+                <circle cx="100" cy="80" r="22" fill="#ea4068" opacity="0.8"/>
+                <circle cx="100" cy="80" r="15" fill="#f04a78" opacity="0.9"/>
+                <circle cx="100" cy="80" r="8" fill="#ff5588"/>
+                <!-- Petal details -->
+                <path d="M100 35 Q130 50 135 80 Q130 110 100 125 Q70 110 65 80 Q70 50 100 35" fill="none" stroke="#a01830" stroke-width="1" opacity="0.5"/>
+                <path d="M100 50 Q120 60 125 80 Q120 100 100 110 Q80 100 75 80 Q80 60 100 50" fill="none" stroke="#a01830" stroke-width="1" opacity="0.5"/>
+                <!-- Center spiral -->
+                <path d="M100 65 Q110 70 110 80 Q110 90 100 95 Q90 90 90 80 Q90 70 100 65" fill="none" stroke="#8b0000" stroke-width="2"/>
+            </svg>
+        </div>
+        <h1 class="hero-title">For Hira</h1>
+        <p class="hero-subtitle">A letter from the heart ❤️</p>
+        <div class="scroll-indicator" onclick="document.getElementById('letter').scrollIntoView({behavior: 'smooth'})">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Love Letter -->
+    <section class="love-letter" id="letter">
+        <div class="letter-card">
+            <div class="letter-header">
+                <h2>My Dearest Hira</h2>
+                <p>Assalam O Alaikum Piyari lady 🌹</p>
+            </div>
+
+            <div class="letter-content" id="letterContent">
+                <p>Assalam O Alaikum Piyari lady or thoore thoore si churail 😂🌹💕</p>
+
+                <p>dar asal pata ha baat kiaa ha jan 🥺 baat yeh ha kay shayed kahee many aapko zaida tang to nahi kar diaa kiaa 😭 wese hi meh aapko kar raha thaa lakin jan meh waqai meh thoora sa nahi poora hurt hogaya thaa aapky behavoiur sy 😭💔 lakin baat yeh nahii ha yar baat yeh ha kay jan aapko kia houa ha 🥺 matlab yeh kay achanak sy many aap meh bohat saara change dekhaa ha means kay zaida nahi lakin wo hurtful thaa 😭 lakin dekhoo yar mujhy sub pata ha aap paryshaan rehtii ho is meh koi shaqq nahii ha lakin meh to aapka hi hoo naw 🥺💕 aapki paryshaaniya mere hi ha naw lakin 💗</p>
+
+                <p>jan mujhy aiesee lagtaa ha jaiesee kay meh aapkay baary meh bohat kam jaanta hoo pata nahi q 🥺</p>
+
+                <p>aap pehle din wali hira banoo naw 😭💕 jo itnee zaida cold hearted nahii thii mujhy aapkay saary versions pasand ha saary kay saary lakin sirf nazar anddaaz karna nahi pasand 😭 jab kay aap bhi is cheez ko samjhatii hoo wo pata ha kis tarhaa feel hoota ha 💔 kaash meh aapko sahi tarhaa sy samjhaa paao lakin wo itnaa zaida buraa hoota ha 😭 aapki sooch ha aap gusssa karoo aap kuch bhi boltee ho aapki kabhi baat ko dil per nahi liaa q kay aap hamesha mere dil me hotee hoo to kabhi feel nahi hoota 💕 lakin aap yeh samjhaany ki koosshish karoo kay jis tarhaa kabhi aaapki energy low hotee ha naw usi tarhaa mere bhi hotee ha 🥺 mujhy perfectionist karnyy kaa hi shauq ha isi liyee meh kuch bhi nahi keh paata ha q kay yehi mere aik achi aadat ha ha kay meh suntaa hoo aik achy listener ki tarhaa har cheez samjhataa hoo lakin meh aapsy dur nahi reh paata wallah qasam 😭❤️ matlab yeh kay aap hoo to dur hi is meh koi shaqq nahii lakin aap mere dil meh itnee zaida pass ho kay us ka aap kabhi andaaza nahi kar saktii kabhi bhi nahi kar saktii 💗😭 yeh mujhy pata ha aapky dil meh feelings to daalty hogyy bohat zaida lakin kabhi kabbar lagtaa ha kay shayed nahi daalty hogyy q kay meh aapko yehi kehnaa chaatha tha lakin aapny call hi nahi uthaai 😭 kay hira aapsy boha zaida piyar ha lakin darr bohat zaidaa itnaa zaidaa kay kaash aap mere dil ki dharkan sun paati or meh aapko bata paata kay yehi awaz ha kay aap bohat zaida azeez hooo ❤️🌹 itnaa zaida many kabhi zindagi meh bhi kisi ko nahi chaaha hooga haala kay rabia ko bhii nahii kabhi bhi nahii lakin pata ha darr kiaa ha wo yeh ha kayy kahii meh aapko itnaa zaida naw chaana shuru kar doo kay aap bolyy kay yeh bohat zaida pagal pann ha 😂😭 meh pagal dekhnaa chaathaa ho lakin sirf aapki nazar meh aik aapka cutie pie wala pagal 😂💕 or mere dill meh aapkay liyee hameshaa aik acha hi nazariyaa ha itnaa piyaraa kay agar aapko batnaa shuru karro to wo yeh haa kay ❤️🌹</p>
+
+                <p>aap pehle or aakhri manzill hoo ❤️🌹 aap bohat zaida haseeen hoo aapki tareef kar kar kay thakoo hi naw kabhi bhii 😂💕 or aapki aankhy jo ghazal jaiesee piyarii ha itnee zaidaa kay agar kuch lamhy tak palak japkhaay beygair dekhoo to doob jaao 🥹❤️ or aapka haath pakar kay har jagay ghoomna chaaho sirf paaglo ki tarhaa aapky sath chaltaa rahoo 💕😂 or aap poore duniya ko bakwaas bolyy or aap apna haal - e - dil sunaatee rahyy or meh khaamoshe sy suntaa rahoo 🥹❤️ aapki meethi awaaz mere kaano ko itnaa sukoon dy kay mujhy isi duniya meh to kya doosre duniya meh bhi aapki awaz mere kaano meh goonjtee rahyy 💗😭 aap apnaa sarr mere kandhy per rakh kay poore duniya ko bhool kay sirf sukoon sy rahoo or aapko koii ghum na lagyy aap khush rahoo 🥹💕🌹</p>
+
+                <p>aapko saare khushiyan doo jo aap chaaho ussy aapky liyee hi haasil karoo 🥺❤️🌹</p>
+
+                <p>q kay q aap mere jan ho jo bhi karoo gaa aapky liyee hi karoo gaa 💕❤️</p>
+
+                <p>or dekhoo yar is meh koiii shaqq nahi ha meh dekhtaa ho aapko shaqq syy lakin dekho mere jan agar mujhy itnaa zaida hoota naw to meh kabka chala bhi gaya hoota q kay piyari aap samjh nahi paree hoo wo pata ha kiaa many pehle hi boola ha jitnaa meh aapko chaathaa ho naw us kii koi hadd nahiii 😭❤️ or aap khud bhi samjhdaar hoo agar mujhy bhi aapaky sath koi lgaao na hoota to kabhi bhi meh aiesee harkatyy karoo hi naw q kay mohaabat aik sy hi hotee ha hazzaroo sy nahi ❤️🌹 q kay mere pass koi time pass kay liyee nahi ha naw na koi female besite na kuch wallah aapko yaqeen karoo 😭💕 many to raat ko gym jaana shuru kar diaa ha 😂 q kay subha male or females saary sath sath hotyy ha wo baat nahii insaan ka self control bhi hoota ha lakin meh satisfy nahi thaa raat ko jaana shuru kar diaa ha naw pagal pann phir 😂😭 q kay many yeh soocha kay shayed mere jan raat ko kuch naw kuch baat kar lyy gee lakin aapka depression aajata ha mujhy pata ha yeh bohat mushkill hoota ha 🥺❤️ lakin jan meh sirf aapka hii hoo to mujhy depression open kar kay btaao taaqy hum dono aik sath us kay sath upper aay naw aik team ki tarhaa naa hi kay aap har time loniless rahoo 🫂💕🌹</p>
+
+                <p>dekhoo hira seriously baat ha agar meh aapki first piriority nahii hoo to aap mujhy bata saktii hoo 🥺 dekhoo mujhy timee pass karnaa nahi aata or bhi cheezy naw insaan kar saktaa ha time pass kay liyee lakin mujhy har cheez janany ka shauq ha .. agar meh insecure feel kartaa bhii ho too aap ko apna cold hear pana thoora sa side per karnaa hooga darling 🥺💕 q kay yeh toor detaa ha aap mujhy bhi samjha saktii ho mujhy aapki loyalty per koi shaqq nahii ha lakin jan agar meh zaida sawal kar loo to zaida lambaa mut karnaa aapkay pass bhi hoo sawal kabhi bhi inkaar nahi karoo gaa har jawaab sahi dooga ❤️ agar aapko mere upper yaqqen nahii ha abhhi bhi ya confusion ha kay meh aapsy itnaa zaida piyar kaiesee kar baithaa or meh aapky liyee hi sub kuch q kar rahaa ho to hum start kartyy ha yeh story gc syy jab aap new new aai thii naw 💕 kuch time takk many aapka behavorioual noticed kiaa tha means kay woh thoora sa nahii bohat zaida different thaa aam larkiyoon meh sy means kay kuch khaas rahaa ha aap meh or mere dil meh bhi aapkay liyee shuru syy hi lakin kabhi sahi tarhaa sy baat nahi kar paaya thaa aapsy 🥺 bohat dafa aapky pass aaya bhi thaa lakin kabhi us hisab sy baat nahii houii thi or mujhy baar baar yehi mana kiaa gyaa thaa kay aap theek nahii hoo lakin aap itnee zaida theek hoo kay koi andaaza bhi nahi kar saktyy 😭❤️ aapko sooch haa kay aap kitnee zaida perfect hoo aap pata ha kiaa hoo one and only beautiful diamond 💎💕🌹</p>
+
+                <p>dekhoo yar mere jan hira meh bilkul bhi aapki nazar meh apnee qadar kaam nahi hoona chaatha kay aapko yeh lagyy kay yeh to itnaa zaida chaatha ha or itnaaa zaida piyar kartaa ha 🥺❤️ meh yehi chaatha ho aap piyari rahoo mujhy pata ha bohat saare paryshaaniyaa ha lakin sub theek hoo jaay ga inshAllah yaqeen rakhoo sub theekh hoo jaay ga 🫂💕 lakin jan agar aapko kabhi mere koii baat buri lagee ho us kay liyee sorry yar i'm really sorry 🥺😭❤️</p>
+
+                <p>pata ha kiaa ha mere jan meh naw bohat zaida boring hoo is meh koiii shaqq nahii ha 😂😭 mujhy doosroo ki tarhaa zaida nahi aata karnyy lakin mere dil aapky baary meh hi soochtaa ha na raat ko sukoon ha na subhaa na din ko na shaam ko sirf aap hi aap hoo beychainee hii ha har time lakin aap hoo yehi aik umeed mujhy har rooz majboor kartii ha aik behtr or acha insaan bananyy meh aapky liyee ❤️🥹 to obviously aapny mere zindaagi meh kya kiaa ha kaash aapny poocha hoota too aapko btataa lakin many aapky liyee kuch bhii nahii kiaa or har kooshish kar rahaa ho 💗🌹</p>
+
+                <p>or jaha tak baat rahi boring kii to kuch cheezy apko btaata ho apny baary meh 😂💕 apny aadat aiesee ha kay meh itnaa boring hoo kay agar meh kisi sy piyar karoo to us sy har rooz same way meh hi kartaa ho kabhi bhi changed nahi hoona chaatha usi energy meh rehny ki kooshish kartaa hooo chaahy jaisaa bhi din ho acha ya bura usi tarhaa rahoo gaa ❤️🌹 lakin kabhi bhi yeh bardhaasht nahi hoota aapki khaamoshi or aapka nazar andaaz karnaa wo dill ko toor detaa 😭💔</p>
+
+                <p>I love You Hira Always urs, and forever jab tak zinda hoo tab takk aap ka rahoo ga ❤️🌹💕 baaqi jan itnee masroofiyat ka kiaa karoo gee aik dafaa dill meh basaa kay dekhoo bohat achaa lagyy gaa 😂💕 kabhi naraash or pachtawa nahii hooga 🥹❤️ .... or yeh sirf baaty nahi ha darling yeh asal alfaaz ha 💗🌹</p>
+
+                <p>aapky muu per bhi yehi hogyy or jaha per bhi aap hogee waha per bhi yehi hogyy ❤️💕🌹</p>
+            </div>
+
+            <div class="rose-divider">
+                <span>🌹</span>
+            </div>
+
+            <div class="signature">
+                Forever Yours
+                <small>With all my love ❤️</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with <span class="heart">❤️</span> for Hira</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Forever & Always 🌹</p>
+    </footer>
+
+    <script>
+        // Create floating petals
+        function createPetals() {
+            const container = document.getElementById('petals');
+            const petalCount = 15;
+
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.innerHTML = '🌹';
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                petal.style.animationDelay = Math.random() * 10 + 's';
+                petal.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                container.appendChild(petal);
+            }
+        }
+
+        // Add sparkle effects
+        function addSparkles() {
+            const card = document.querySelector('.letter-card');
+            for (let i = 0; i < 10; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                card.appendChild(sparkle);
+            }
+        }
+
+        
+        
+        
+        
+        // Initialize
+        createPetals();
+        addSparkles();
+
+        // Background music control
+        const music = document.getElementById('backgroundMusic');
+        const musicControl = document.getElementById('musicControl');
+        const musicIcon = document.getElementById('musicIcon');
+        let isPlaying = false;
+
+        function updateIcon() {
+            musicIcon.textContent = isPlaying ? '🎵' : '🔇';
+            musicControl.classList.toggle('playing', isPlaying);
+        }
+
+        function playMusic() {
+            const promise = music.play();
+            if (promise !== undefined) {
+                promise.then(() => {
+                    isPlaying = true;
+                    updateIcon();
+                }).catch(() => {
+                    // Autoplay was blocked by the browser; wait for user interaction
+                    isPlaying = false;
+                    updateIcon();
+                });
+            }
+        }
+
+        // Attempt autoplay immediately (works in some browsers)
+        playMusic();
+
+        // Fallback: start music on first user interaction anywhere on the page
+        function startOnInteraction() {
+            if (!isPlaying) {
+                playMusic();
+            }
+            document.removeEventListener('click', startOnInteraction);
+            document.removeEventListener('touchstart', startOnInteraction);
+            document.removeEventListener('keydown', startOnInteraction);
+        }
+        document.addEventListener('click', startOnInteraction);
+        document.addEventListener('touchstart', startOnInteraction);
+        document.addEventListener('keydown', startOnInteraction);
+
+        // Toggle play/pause when the control button is clicked
+        musicControl.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (music.paused) {
+                playMusic();
+            } else {
+                music.pause();
+                isPlaying = false;
+                updateIcon();
+            }
+        });
+
+        updateIcon();
+
+
+        // Smooth scroll for letter content
+        document.querySelectorAll('.letter-content p').forEach((p, i) => {
+            p.style.animation = `fadeInUp 1s ease-out ${i * 0.1}s both`;
+        });
+    </script>
+</body>
+</html>
